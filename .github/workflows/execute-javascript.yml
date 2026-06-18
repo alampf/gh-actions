@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Inicia actions"
-      - run: Node --version
+      - run: node --version
       - name: Check out repository code
         uses: actions/checkout@v6
       - run: ls -al
-      - run: Node app.js
+      - run: node app.js
