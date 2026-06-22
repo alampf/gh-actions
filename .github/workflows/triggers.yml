@@ -19,4 +19,4 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v6
       - run: ls -al
-      - run: python execution.py
+      - run: python triggers.py
