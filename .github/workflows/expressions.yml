@@ -7,23 +7,25 @@ on:
   workflow_dispatch: 
     inputs:
       edad:
-        description: "21"
+        description: "Edad"
         required: true
         type: number
+        default: 21
       nombre:
-        description: "Alan"
+        description: "Nombre"
         required: true
         type: string
+        default: "Alan"
 jobs:
   mayor:
     if: ${{ inputs.edad >= 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Iniciando Script Valido
-        run: echo ${{ inputs.nombre }} es mayor de edad
+        run: echo "${{ inputs.nombre }} es mayor de edad"
   menor:
-    if: ${{ inputs.edad <= 18 }}
+    if: ${{ inputs.edad < 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Iniciando Script Invalido
-        run: echo ${{ inputs.nombre }} es menor de edad
+        run: echo "${{ inputs.nombre }} es menor de edad"
