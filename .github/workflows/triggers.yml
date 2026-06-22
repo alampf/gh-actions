@@ -1,0 +1,22 @@
+name: Prueba de ejecucion de triggers o disparadores en gh-actions
+run-name: Ejecutando un script de Python
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0,30 * * * *'
+  issue_comment:
+    types:
+      - created
+  workflow_dispatch:
+jobs:
+  execute-script-python:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Iniciando Execution.py"
+      - run: python --version
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - run: ls -al
+      - run: python execution.py
