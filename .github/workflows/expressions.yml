@@ -1,0 +1,29 @@
+name: Exression
+run-name: Ejecutando Expressions
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+    inputs:
+      edad:
+        description: "21"
+        required: true
+        type: number
+      nombre:
+        description: "Alan"
+        required: true
+        type: string
+jobs:
+  mayor:
+    if: ${{ inputs.edad >= 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Iniciando Script Valido
+        run: echo ${{ inputs.nombre }} es mayor de edad
+  menor:
+    if: ${{ inputs.edad <= 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Iniciando Script Invalido
+        run: echo ${{ inputs.nombre }} es menor de edad
