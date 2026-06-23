@@ -11,3 +11,10 @@ jobs:
       - run: cat file.txt
       - run: rm -rf file.txt
       - run: ls -al
+      - run: echo "The job is done" 
+      
+      - run: echo "USERNAME is ${{ github.actor }}" >> $GITHUB_ENV
+      - run: echo $ PATH
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - run: python app.py
