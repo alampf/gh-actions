@@ -7,12 +7,12 @@ on:
   workflow_dispatch: 
     inputs:
       edad:
-        description: "Edad"
+        description: "EDAD"
         required: true
         type: number
         default: 21
       nombre:
-        description: "Nombre"
+        description: "NOMBRE"
         required: true
         type: string
         default: "Alan"
@@ -29,3 +29,11 @@ jobs:
     steps:
       - name: Iniciando Script Invalido
         run: echo "${{ inputs.nombre }} es menor de edad"
+        
+  execute-python-conditions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "EDAD-${{ inputs.edad }}" >> $GITHUB_ENV
+      - run: echo "NOMBRE-${{ inputs.nombre }}" >> $GITHUB_ENV
+      - uses: actions/checkout@v6 
+      - run: python conditions.py
