@@ -7,12 +7,12 @@ on:
   workflow_dispatch: 
     inputs:
       edad:
-        description: "EDAD"
+        description: "Edad"
         required: true
         type: number
         default: 21
       nombre:
-        description: "NOMBRE"
+        description: "Nombre"
         required: true
         type: string
         default: "Alan"
@@ -33,7 +33,7 @@ jobs:
   execute-python-conditions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "EDAD-${{ inputs.edad }}" >> $GITHUB_ENV
-      - run: echo "NOMBRE-${{ inputs.nombre }}" >> $GITHUB_ENV
+      - run: echo "EDAD=${{ inputs.edad }}" >> $GITHUB_ENV
+      - run: echo "NOMBRE=${{ inputs.nombre }}" >> $GITHUB_ENV
       - uses: actions/checkout@v6 
       - run: python conditions.py
